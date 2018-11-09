@@ -4,6 +4,7 @@ var LinkedList = function() {
   list.tail = null;
 
   list.addToTail = function(value) {
+    //complexity time is O(1)
 
     var newNode = Node(value);
     // make the last node point to the new one if the list is not empty
@@ -21,7 +22,7 @@ var LinkedList = function() {
   };
 
   list.removeHead = function() {
-    
+    //complexity time is O(1)
     var firstNode = this.head;
     this.head = this.head.next;
     return firstNode.value;
@@ -29,7 +30,7 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-    
+    //complexity time is O(n)
     // visit each node and compair the value to target
     var pointer = this.head;
     while ( pointer !== null ) {
@@ -47,6 +48,7 @@ var LinkedList = function() {
 };
 
 var Node = function(value) {
+  //complexity time is O(1)
   var node = {};
 
   node.value = value;

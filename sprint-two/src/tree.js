@@ -1,4 +1,5 @@
 var Tree = function(value) {
+  //complexity time is O(1)
   var newTree = {};
   newTree.value = value;
   
@@ -15,7 +16,7 @@ var Tree = function(value) {
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {
-  
+  //complexity time is O(1)
   // create a new node 'tree object'
   // assign the value for the new node
   // push the new node in the children array
@@ -27,9 +28,10 @@ treeMethods.addChild = function(value) {
 };
 
 treeMethods.contains = function(target) {
+  //complexity time is O(n)
   //Using BFS technique to visit every node in the tree
   //using recursion
-  console.log(this.value);
+
   if (this.value === target) {
     return true;
     
@@ -51,6 +53,7 @@ treeMethods.contains = function(target) {
 };
 
 var extend = function(to, from) {
+  //complexity time is O(n)
   for (var key in from) {
     to[key] = from[key];
   }
