@@ -23,6 +23,14 @@ Graph.prototype.removeNode = function(node) {
   //find the index of that node
   var index = this.value.indexOf(node);
   this.value.splice(index,1);
+  
+  for( var i = 0; i < this.edge.length; i++) {
+    
+    if( this.edge[i][0] === node || this.edge[i][1] === node) {
+      this.edge.splice(i,1);
+    }
+  }
+  
 };
 
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
@@ -68,6 +76,9 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
+  
+  this.value.forEach(cb);
+  
 };
 
 /*
