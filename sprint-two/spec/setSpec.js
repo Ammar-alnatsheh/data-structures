@@ -23,5 +23,10 @@ describe('set', function() {
     set.remove('Mel Gibson');
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
-
+  
+  it('should not add duplicate values by --  Jacky & Ammar  --', function() {
+    set.add('Mel Gibson');
+    set.add('Mel Gibson');
+    expect(set._storage.indexOf('Mel Gibson') === set._storage.lastIndexOf('Mel Gibson')).to.equal(true);
+  });
 });
