@@ -7,6 +7,10 @@ var HashTable = function() {
 
 HashTable.prototype.insert = function(k, v) {
   //complexity time is O(n)
+  if ( k === null || k === undefined ) {
+    return;
+  }
+  
   var index = getIndexBelowMaxForKey(k, this._limit);
   
   //create an tuple for key and value
@@ -45,6 +49,10 @@ HashTable.prototype.insert = function(k, v) {
 
 HashTable.prototype.retrieve = function(k) {
    //complexity time is O(n)
+  if ( k === null || k === undefined ) {
+    return;
+  }
+  
   var index = getIndexBelowMaxForKey(k, this._limit);
   // get all the buckets
   var buckets = this._storage.get(index);
@@ -60,6 +68,10 @@ HashTable.prototype.retrieve = function(k) {
 
 HashTable.prototype.remove = function(k) {
    //complexity time is O(n)
+  if ( k === null || k === undefined ) {
+    return;
+  }
+  
   var index = getIndexBelowMaxForKey(k, this._limit);
     // get all the buckets
   var buckets = this._storage.get(index);
