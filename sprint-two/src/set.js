@@ -7,7 +7,7 @@ var Set = function() {
 var setPrototype = {};
 
 setPrototype.add = function(item) {
-  //complexity time is O(1)
+  //complexity time is O(n)
   if ( !this.contains(item)) {
     this._storage.push(item);
   }
