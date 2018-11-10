@@ -68,4 +68,10 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+  
+  it('should not add duplicate values by --  Jacky & Ammar  --', function() {
+    graph.addNode(5);
+    graph.addNode(5);
+    expect(graph.value.indexOf(5) === graph.value.lastIndexOf(5)).to.equal(true);
+  });
 });
