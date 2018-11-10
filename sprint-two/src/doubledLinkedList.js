@@ -7,7 +7,7 @@ class DoubledLinedList {
    
    addToHead(value){
      //complexity time is O(1)
-     var newNode = new Node(value);
+     var newNode = new DoubleLinkListNode(value);
      
      if (this.tail === null && this.head === null){
       //first node
@@ -28,10 +28,20 @@ class DoubledLinedList {
     //complexity time is O(1)
      // return the last node incase if needed
      var lastNode = this.tail;
-     this.tail = lastNode.previous;
-     this.tail.next = null;
      
-     return lastNode;
+     if (lastNode.previous === null){
+      //its the only node
+      this.tail = null;
+      this.head = null;
+      
+     } else {
+      
+      this.tail = lastNode.previous;
+      this.tail.next = null;
+     }
+
+     
+     return lastNode.value;
    }
    
    contains(target){
@@ -50,7 +60,7 @@ class DoubledLinedList {
    
 }
 
-class Node {
+class DoubleLinkListNode {
   
   constructor(value){
     this.value = value;
