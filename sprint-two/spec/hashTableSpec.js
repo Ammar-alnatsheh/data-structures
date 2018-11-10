@@ -46,6 +46,13 @@ describe('hashTable', function() {
     expect(hashTable.retrieve(v2)).to.equal(v2);
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
+  
+  it('should not insert key as null or undefined by --  Jacky & Ammar  --', function() {
+    hashTable.insert(null, 'value');
+    expect(hashTable.retrieve(null)).to.equal(undefined);
+    hashTable.insert(undefined, 'value');
+    expect(hashTable.retrieve(undefined)).to.equal(undefined);
+  });
 
   // (Advanced! Remove the extra "x" when you want the following tests to run)
   xit ('should double in size when needed', function() {
