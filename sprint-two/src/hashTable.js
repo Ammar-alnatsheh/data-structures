@@ -6,6 +6,7 @@ var HashTable = function() {
 };
 
 HashTable.prototype.insert = function(k, v) {
+  //complexity time is O(n)
   var index = getIndexBelowMaxForKey(k, this._limit);
   
   //create an tuple for key and value
@@ -23,6 +24,7 @@ HashTable.prototype.insert = function(k, v) {
     
     var tupleIndex = -1;
     for (var i = 0; i < buckets.length; i++ ){
+      
       if ( buckets[i][0] === k) {
         tupleIndex = i;
       }
@@ -31,6 +33,7 @@ HashTable.prototype.insert = function(k, v) {
     if ( tupleIndex === -1) {
       // add the new tuple to the buckets
       buckets.push(tuple);
+      
     } else {
       // replace the tuple
       this._storage.set(index, [tuple]);
@@ -41,6 +44,7 @@ HashTable.prototype.insert = function(k, v) {
 };
 
 HashTable.prototype.retrieve = function(k) {
+   //complexity time is O(n)
   var index = getIndexBelowMaxForKey(k, this._limit);
   // get all the buckets
   var buckets = this._storage.get(index);
@@ -55,6 +59,7 @@ HashTable.prototype.retrieve = function(k) {
 };
 
 HashTable.prototype.remove = function(k) {
+   //complexity time is O(n)
   var index = getIndexBelowMaxForKey(k, this._limit);
     // get all the buckets
   var buckets = this._storage.get(index);
@@ -73,13 +78,3 @@ HashTable.prototype.remove = function(k) {
  * Complexity: What is the time complexity of the above functions?
  */
 
-
-// var v1 = 'val1';
-// var v2 = 'val2';
-// var oldHashFunction = window.getIndexBelowMaxForKey;
-// window.getIndexBelowMaxForKey = function() { return 0; };
-// hashTable.insert(v1, v1);
-// hashTable.insert(v2, v2);
-// expect(hashTable.retrieve(v1)).to.equal(v1);
-// expect(hashTable.retrieve(v2)).to.equal(v2);
-// window.getIndexBelowMaxForKey = oldHashFunction;
