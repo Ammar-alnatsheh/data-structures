@@ -40,7 +40,7 @@ describe('tree', function() {
     expect(tree.contains(7)).to.equal(true);
     expect(tree.contains(8)).to.equal(true);
   });
-  
+
   it('should be able to detect all children by -- Jacky & Ammar --', function() {
     tree.addChild(5);
     tree.addChild(6);
@@ -50,6 +50,25 @@ describe('tree', function() {
     expect(tree.contains(7)).to.equal(true);
     expect(tree.contains(8)).to.equal(true);
     expect(tree.contains(9)).to.equal(true);
+  });
+
+  it('should not be able to add parent to a root "first node" by -- Ammar --', function() {
+    tree.addChild(5);
+    expect(tree.parent).to.equal(null);
+  });
+
+  it('should be able to add parent to a tree\'s child by -- Ammar --', function() {
+    tree.addChild(5);
+    tree.children[0].addChild(6);
+    expect(tree.children[0].children[0].parent.value).to.equal(5);
+  });
+
+  it('should be able to remove parent from a child and remove the chiled from its parent by -- Ammar --', function() {
+    tree.addChild(5);
+    tree.children[0].addChild(6);
+    var node = tree.children[0].children[0].removeFromParent();
+    expect(tree.contains(6)).to.equal(false);
+    expect(node.parent).to.equal(null);
   });
 
 });
