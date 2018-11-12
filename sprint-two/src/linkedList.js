@@ -8,15 +8,15 @@ var LinkedList = function() {
 
     var newNode = Node(value);
     // make the last node point to the new one if the list is not empty
-    if (list.tail !== null) {
+    if (this.tail !== null) {
       var lastNode = this.tail;
       lastNode.next = newNode;
     }
-    
+
     if ( this.head === null ) {
       this.head = newNode;
     }
-    
+
     this.tail = newNode;
 
   };
@@ -26,7 +26,7 @@ var LinkedList = function() {
     var firstNode = this.head;
     this.head = this.head.next;
     return firstNode.value;
-    
+
   };
 
   list.contains = function(target) {
@@ -43,8 +43,8 @@ var LinkedList = function() {
   };
 
   return list;
-  
-  
+
+
 };
 
 var Node = function(value) {
