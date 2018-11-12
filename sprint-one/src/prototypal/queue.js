@@ -21,6 +21,7 @@ queueMethods.enqueue = function(value) {
 queueMethods.dequeue = function() {
   if ( (this.last - this.first) > 0 ) {
     this.first ++;
+    delete this.storage[this.first-1];
     return this.storage[this.first];
   }
 };

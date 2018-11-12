@@ -6,7 +6,7 @@ class Queue {
     this.first = 0;
     this.last = 0;
   }
-  
+
   enqueue(value) {
     this.last ++;
     this.storage[this.last] = value;
@@ -15,6 +15,7 @@ class Queue {
   dequeue() {
     if ( (this.last - this.first) > 0 ) {
       this.first ++;
+      delete this.storage[this.first-1];
       return this.storage[this.first];
     }
   }
@@ -22,7 +23,7 @@ class Queue {
   size() {
     return this.last - this.first;
   }
-  
+
 
 }
 

@@ -16,8 +16,10 @@ var Queue = function() {
   someInstance.dequeue = function() {
     if ( (last - first) > 0 ) {
       first ++;
+      delete storage[first-1];
       return storage[first];
     }
+
   };
 
   someInstance.size = function() {
